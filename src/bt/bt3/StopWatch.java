@@ -24,15 +24,7 @@ private long startTime,endTime,elapsedTime;
     }
 
     public long getElapsedTime() {
-        return elapsedTime;
-    }
-
-    public void setElapsedTime(long elapsedTime) {
-        this.elapsedTime = elapsedTime;
-    }
-
-    public void setEndTime(long endTime) {
-        this.endTime = endTime;
+        return this.endTime - this.startTime;
     }
     public  void start() {
         this.startTime = System.currentTimeMillis();
@@ -40,8 +32,5 @@ private long startTime,endTime,elapsedTime;
     public void stop () {
         this.endTime = System.currentTimeMillis();
     }
-    public  void elapsedTime () {
-         this.elapsedTime = this.endTime - this.startTime;
-        System.out.println("time elapsed: " + this.elapsedTime);
-    }
+
 }

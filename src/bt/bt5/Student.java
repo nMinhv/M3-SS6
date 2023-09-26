@@ -3,84 +3,86 @@ package bt.bt5;
 import java.util.Scanner;
 
 public class Student {
-    Scanner sc = new Scanner(System.in);
-    private int studentID, studentAge;
-    private String studentName, studentGender, studentAddress;
+
+    private int id, age;
+    private String name, phone, address;
+    private boolean sex;
 
     public Student() {
     }
 
-    public Student(int studentID, int studentAge, String studentName, String studentGender, String studentAddress) {
-        this.studentID = studentID;
-        this.studentAge = studentAge;
-        this.studentAddress = studentAddress;
-        this.studentGender = studentGender;
-        this.studentName = studentName;
+    public Student(int id, int age, String name, String phone, String address, boolean sex) {
+        this.id = id;
+        this.age = age;
+        this.name = name;
+        this.phone = phone;
+        this.address = address;
+        this.sex = sex;
     }
 
-    public void inputData(int id) {
-        studentID = id;
-        System.out.println("New Student Name:");
-        studentName = sc.nextLine();
-        System.out.println("New Student Address");
-        studentAddress = sc.nextLine();
-        System.out.println("New Student Gender male/female");
-        boolean isGender = false;
-        while (!isGender) {
-            studentGender = sc.nextLine();
-            if (studentGender.equals("male")) {
-                isGender = true;
-            } else if (studentGender.equals("female")) {
-                isGender = true;
-            }else {
-                System.out.println("Gender?");
-            }        }
-        System.out.println("New Student Age");
-        studentAge = Integer.parseInt(sc.nextLine());
+    public void inputData(Scanner sc) {
+        System.out.println("Student id:");
+        this.id = Integer.parseInt(sc.nextLine());
+        System.out.print("Student Name:");
+        this.name = sc.nextLine();
+        System.out.print("Student Age:");
+        this.age = Integer.parseInt(sc.nextLine());
+        System.out.print("Student Address:");
+        this.address = sc.nextLine();
+        System.out.print("Student Phone:");
+        this.phone = sc.nextLine();
+        System.out.println("Student Gender male/female");
+        this.sex = Boolean.parseBoolean(sc.nextLine());
+    }
+    public  void  display () {
+        System.out.printf("ID: %d - Name: %s - Age: %d\n",this.id,this.name,this.age);
+        System.out.printf("Sex: %b - Address: %s - Phone: %s\n",this.sex,this.address,this.phone);
+    }
+    public int getId() {
+        return id;
     }
 
-    public int getStudentID() {
-        return studentID;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setStudentID(int studentID) {
-        this.studentID = studentID;
+    public int getAge() {
+        return age;
     }
 
-    public int getStudentAge() {
-        return studentAge;
+    public void setAge(int age) {
+        this.age = age;
     }
 
-    public void setStudentAge(int studentAge) {
-        this.studentAge = studentAge;
+    public String getName() {
+        return name;
     }
 
-    public String getStudentName() {
-        return studentName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setStudentName(String studentName) {
-        this.studentName = studentName;
+    public String getPhone() {
+        return phone;
     }
 
-    public String getStudentGender() {
-        return studentGender;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public void setStudentGender(String studentGender) {
-        this.studentGender = studentGender;
+    public String getAddress() {
+        return address;
     }
 
-    public String getStudentAddress() {
-        return studentAddress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public void setStudentAddress(String studentAddress) {
-        this.studentAddress = studentAddress;
+    public boolean isSex() {
+        return sex;
     }
 
-    public void getStudent() {
-        System.out.printf("ID: %d Name %s Age: %d Address Sex: %s", studentID, studentName, studentAge, studentAddress, studentGender);
-        System.out.println();
+    public void setSex(boolean sex) {
+        this.sex = sex;
     }
 }
